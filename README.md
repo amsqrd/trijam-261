@@ -25,13 +25,13 @@ python -m http.server 8000
 
 * TBD
 
-## Troubleshooting Notes
-
-1. Ran into an odd issue with `gh-pages` deployment. The scripts for `scripts/phaser.min.js` and `scripts/main.js` were both returning with `404` when the browser tried loading the resources. This only only occurred when trying to access the game via the deployed website. While running with a local server, the resources loaded as intended. The solution was to move the `script` elements outside of the `head` or `body` elements and into the root `html` element. Not sure why this was resolvd the issue, a point to investigate further later. 
-
 ## Third Party Assets 
 
 * Mega Music Collection: `Action Time (looped).wav`
+
+## Troubleshooting Notes
+
+1. Ran into an odd issue with `gh-pages` deployment. The scripts for `scripts/phaser.min.js` and `scripts/main.js` were both returning with `404` when the browser tried loading the resources. This only occurred when trying to access the game via the deployed website. While running with a local server, the resources loaded as intended. The solution was to move the `script` elements outside of the `head` or `body` elements and into the root `html` element. Not sure why this was resolvd the issue, a point to investigate further later. 
 
 ## Maintainers
 
