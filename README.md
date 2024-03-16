@@ -1,7 +1,7 @@
 # trijam-261
 Source code for amsqrd's entry to Trijam 261. The theme is "One Wrong Move."
 
-[Trijam](https://itch.io/jam/trijam-261) is a weekly game jam where the goal is to create a game in under 3 hours of development time.
+[Trijam](https://itch.io/jam/trijam-261) is a weekly game jam where the goal is to create a game in under 3 hours of development time. Play it [here](https://amsqrd.github.io/trijam-261/)!
 
 ## Synopsis
 
