@@ -28,6 +28,9 @@ python -m http.server 8000
 ## Third Party Assets 
 
 * Mega Music Collection: `Action Time (looped).wav`
+* [Textured Wall (Unsplash)](https://unsplash.com/photos/gray-concrete-floor-XXuVXLy5gHU)
+* [Hero Spritesheet](https://opengameart.org/content/hero-spritesheets-ars-notoria)
+* [Mr. Man Spritesheet](https://opengameart.org/content/classic-hero)
 
 ## Troubleshooting Notes
 

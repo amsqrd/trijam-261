@@ -1,10 +1,43 @@
 class SpyGame extends Phaser.Scene {
+    player;
+
     preload() {
         // load assets
+        this.load.image('wall', 'assets/wall.jpg');
+        this.load.spritesheet('player', 
+            'assets/player.png',
+            { frameWidth: 46, frameHeight: 50 });
     }
 
     create() {
+        this.add.image(400, 300, 'wall');
 
+        this.player = this.physics.add.sprite(100, 450, 'player');
+        this.player.setBounce(0.2);
+        this.player.setCollideWorldBounds(true);
+
+        this.anims.create({
+            key: 'right',
+            frames: this.anims.generateFrameNumbers('player', { start: 24, end: 31 }),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key: 'jump',
+            frames: this.anims.generateFrameNumbers('player', { start: 24, end: 31 }),
+            frameRate: 10,
+            repeat: -1
+        });
+    }
+
+    update() {
+        let cursors = this.input.keyboard.createCursorKeys();
+
+        if(cursors.right.isDown) {
+            this.player.setVelocityX(160);
+            this.player.anims.play('right', true);
+        }
     }
 }
 
