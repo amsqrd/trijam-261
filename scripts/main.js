@@ -1,9 +1,11 @@
 class SpyGame extends Phaser.Scene {
     player;
+    platforms;
 
     preload() {
         // load assets
         this.load.image('wall', 'assets/wall.jpg');
+        this.load.image('platform', 'assets/platform.png');
         this.load.spritesheet('player', 
             'assets/player.png',
             { frameWidth: 46, frameHeight: 50 });
@@ -18,9 +20,18 @@ class SpyGame extends Phaser.Scene {
 
         this.add.image(400, 300, 'wall');
 
+        this.platforms = this.physics.add.staticGroup();
+        this.platforms.create(400, 600, 'platform').refreshBody();
+
         this.player = this.physics.add.sprite(100, 450, 'player');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
+
+        this.anims.create({
+            key: 'idle',
+            frames: this.anims.generateFrameNumbers('player', { start: 0, end: 0 }),
+            frameRate: 20
+        });
 
         this.anims.create({
             key: 'right',
@@ -35,6 +46,8 @@ class SpyGame extends Phaser.Scene {
             frameRate: 10,
             repeat: -1
         });
+
+        this.physics.add.collider(this.player, this.platforms);
     }
 
     update() {
@@ -43,6 +56,15 @@ class SpyGame extends Phaser.Scene {
         if(cursors.right.isDown) {
             this.player.setVelocityX(160);
             this.player.anims.play('right', true);
+        } else if (cursors.left.isDown) { 
+            this.player.setVelocityX(-160);
+            this.player.anims.playReverse('right', true);
+        } else if (cursors.up.isDown) {
+            // this.player.setVelocityY(-160);
+            // this.player.anims.play('jump');
+        } else {
+            this.player.setVelocityX(0);
+            this.player.anims.play('idle');
         }
     }
 }
