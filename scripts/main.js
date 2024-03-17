@@ -26,6 +26,7 @@ class SpyGame extends Phaser.Scene {
         this.player = this.physics.add.sprite(100, 450, 'player');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
+        this.player.setGravityY(400);
 
         this.anims.create({
             key: 'idle',
@@ -60,8 +61,8 @@ class SpyGame extends Phaser.Scene {
             this.player.setVelocityX(-160);
             this.player.anims.playReverse('right', true);
         } else if (cursors.up.isDown) {
-            // this.player.setVelocityY(-160);
-            // this.player.anims.play('jump');
+            this.player.setVelocityY(-100);
+            this.player.anims.play('jump');
         } else {
             this.player.setVelocityX(0);
             this.player.anims.play('idle');
