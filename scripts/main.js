@@ -7,9 +7,15 @@ class SpyGame extends Phaser.Scene {
         this.load.spritesheet('player', 
             'assets/player.png',
             { frameWidth: 46, frameHeight: 50 });
+
+        this.load.audio('background-audio', 'assets/background-music.wav');
     }
 
     create() {
+        let backgroundAudio = this.sound.add('background-audio');
+        backgroundAudio.loop = true;
+        backgroundAudio.play();
+
         this.add.image(400, 300, 'wall');
 
         this.player = this.physics.add.sprite(100, 450, 'player');
