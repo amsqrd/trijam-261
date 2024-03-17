@@ -23,7 +23,7 @@ python -m http.server 8000
 
 ## Useful Resources
 
-* TBD
+* [Flip a Sprite Animation](https://phaser.discourse.group/t/flipx-for-spritesheet-animation/12935)
 
 ## Third Party Assets 
 

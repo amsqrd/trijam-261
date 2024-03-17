@@ -55,11 +55,13 @@ class SpyGame extends Phaser.Scene {
         let cursors = this.input.keyboard.createCursorKeys();
 
         if(cursors.right.isDown) {
+            this.player.setFlipX(false);
             this.player.setVelocityX(160);
             this.player.anims.play('right', true);
         } else if (cursors.left.isDown) { 
+            this.player.setFlipX(true);
             this.player.setVelocityX(-160);
-            this.player.anims.playReverse('right', true);
+            this.player.anims.play('right', true);
         } else if (cursors.up.isDown) {
             this.player.setVelocityY(-100);
             this.player.anims.play('jump');
