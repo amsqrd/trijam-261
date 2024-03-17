@@ -14,20 +14,25 @@ class SpyGame extends Phaser.Scene {
     }
 
     create() {
+        // Setup background audio on repeat
         let backgroundAudio = this.sound.add('background-audio');
         backgroundAudio.loop = true;
         backgroundAudio.play();
 
+        // Add wall texture
         this.add.image(400, 300, 'wall');
 
+        // Add ground
         this.platforms = this.physics.add.staticGroup();
         this.platforms.create(400, 600, 'platform').refreshBody();
 
+        // Setup player sprite
         this.player = this.physics.add.sprite(100, 450, 'player');
         this.player.setBounce(0.2);
         this.player.setCollideWorldBounds(true);
         this.player.setGravityY(400);
 
+        // Setup player sprite animation states
         this.anims.create({
             key: 'idle',
             frames: this.anims.generateFrameNumbers('player', { start: 0, end: 0 }),
@@ -62,7 +67,7 @@ class SpyGame extends Phaser.Scene {
             this.player.setFlipX(true);
             this.player.setVelocityX(-160);
             this.player.anims.play('right', true);
-        } else if (cursors.up.isDown) {
+        } else if (cursors.up.isDown || cursors.space.isDown) {
             this.player.setVelocityY(-100);
             this.player.anims.play('jump');
         } else {
